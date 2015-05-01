@@ -7,6 +7,7 @@
 	= csrf_meta_tags
 
 %body
+
 	%nav.navbar.navbar-default
 		.container
 			.navbar-brand Anziel
@@ -14,7 +15,7 @@
 				%li= link_to "All Jobs", root_path
 				- Category.all.each do |category|
 					%li= link_to category.name, jobs_path(category: category.name)
-			.navbar-text.navbar-right.navbar-link To make a New Job Posting: <iframe src="http://www.paywithatweet.com/dlbutton01.php?id=aaf0b8f0-5e6a-455e-b66b-16a8e391939e" class="br-right-md" name="paytweet_button" scrolling="no" frameborder="no" height="24px" width="145px"></iframe>
+			.navbar-text.navbar-right.navbar-link= link_to "Post a Job", new_job_path
 			
 	.container
 		.col-md-6.col-md-offset-3		
