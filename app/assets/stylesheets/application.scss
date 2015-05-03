@@ -17,15 +17,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-* {
+*
+{
 	box-sizing: border-box;
 }
 
-html {
+html
+{
 	height: 100%;
 }
 
-body {
+body
+{
 	height: 100%;
   background: -webkit-linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
   background:    -moz-linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
@@ -36,16 +39,31 @@ body {
 }
 
 .clearfix:before,
-.clearfix:after {
+.clearfix:after 
+{
   content: " ";
   display: table;
 }
 
-.clearfix:after {
+.clearfix:after
+{
   clear: both;
 }
 
-.navbar-default {
+.row
+{
+	margin-right: 0 !important;
+}
+
+.bold
+{
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 700;
+	color: #333333;
+}
+
+.navbar-default
+{
 	background-color: white;
 	border-radius: 0;
 	height: 80px;
@@ -53,7 +71,8 @@ body {
 	border: none;
 }
 
-.navbar-brand {
+.navbar-brand
+{
 	text-transform: uppercase;
 	letter-spacing: -1px;
 	font-size: 2em;
@@ -61,36 +80,56 @@ body {
 	color: #1D976C !important;
 }
 
-#jobs {
-	.job {
+#jobs
+{
+	width: 100%;
+
+	.jobgroup
+		{
+			display: inline-block;
+		}
+
+	.job
+	{
 		padding: 1em 0;
 		border-bottom: 1px solid rgba(250,250,250, 0.5);
-		h2 {
-			font-size: 2.5em;
+		
+		h4
+		{
+			
 			font-weight: 300;
 			margin-bottom: 0;
 			color: white;
-			a {
+			
+			a
+			{
 				color: white;
 			}
 		}
-		p {
+		
+		p
+		{
 			color: rgba(250,250,250, 0.5);
 		}
+
 	}
 }
 
-#links {
+#links
+{
 	margin-top: 2em;
 }
 
-#notice_wrapper {
+#notice_wrapper
+{
     position: absolute;
     top: 0;
     width: 100%;
     z-index: 999;
     background: rgba(135, 216, 211, 0.85);
-    .alert, .notice {
+    
+    .alert, .notice
+    {
         padding: 2.5rem 0;
         text-align: center;
         margin: 0;
@@ -100,3 +139,61 @@ body {
         letter-spacing: 1px;
     }
 }
+
+.border-top
+{
+	border-top:1px solid #e3e3e3;
+}
+
+#social-footer .box-link
+{
+	margin: 45px 0 38px 0;
+	padding: 0 0 49px 0;
+	width: 100%;
+	line-height: 20px;
+	text-align: center;
+	display: block;
+	
+	span
+	{
+		font-size: 19px;
+		display: block;
+	}
+
+	&:hover
+	{
+		text-decoration: none;
+		
+		.bold
+		{
+			color:#ff8400;
+		}
+	}
+
+}
+
+#social-footer .box-link span.light
+{
+	color: #686868;
+	font-size: 16px;
+}
+
+#social-footer .box-link.twitter
+{
+	background: url(#) center bottom no-repeat;
+	background-size: 40px 40px;
+}
+
+#social-footer .box-link.facebook
+{
+	background: url(#) center bottom no-repeat;
+	background-size: 40px 40px;
+}
+
+#social-footer .box-link.newletter
+{
+	background: url(#) center bottom no-repeat;
+	background-size: 40px 40px;
+}
+
+

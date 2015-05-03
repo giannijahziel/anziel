@@ -1,8 +1,8 @@
 = provide(:title, "Anziel")
 #jobs
 	- @jobs.in_groups_of(4, false) do |jobgroup|
-		.jobgroups
+		.jobgroup.col-lg-3.col-md-4.col-sm-6
 			- jobgroup.each do |job|
-				.jobs
-					%h2= link_to job.title, job
+				.job
+					%h4= link_to job.title, job
 					%p= job.company

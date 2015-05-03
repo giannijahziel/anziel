@@ -7,16 +7,81 @@
 	= csrf_meta_tags
 
 %body
+	
+	- if notice
+		#notice_wrapper
+			%p.notice
+				= notice
+	- elsif
+		#notice_wrapper
+			%p.alert
+				= alert
+
+	%header
+		#header
+			.logo
+				= link_to "Anziel", root_path
+			.site-links
+				%ul
+					%li= link_to "About Us", '#'
+					%li= link_to "FAQ", '#'
+					%li= link_to "Log In", new_user_session_path
+					%li= link_to "Sign Up", new_user_registration_path
+					%li= link_to "Log Out", destroy_user_session_path, :method => :delete
 
 	%nav.navbar.navbar-default
 		.container
-			.navbar-brand Anziel
+			.navbar-brand
 			%ul.nav.navbar-nav
 				%li= link_to "All Jobs", root_path
 				- Category.all.each do |category|
 					%li= link_to category.name, jobs_path(category: category.name)
+				- Industry.all.each do |industry|
+					%li= link_to industry.name, jobs_path(industry: industry.name)
+				- Parish.all.each do |parish|
+					%li= link_to parish.name, jobs_path(parish: parish.name)		
 			.navbar-text.navbar-right.navbar-link= link_to "Post a Job", new_job_path
 			
 	.container
-		.col-md-6.col-md-offset-3		
+		.row
 			= yield
+
+	%footer
+		.border-top#social-footer
+			.containter
+				.row
+					.col-lg-4.col-md-12.col-sm-12.col-xs-12
+						= link_to 'https://www.twitter.com/anzielhq', target: '_blank', class: 'box-link twitter' do
+							%span.light What's new?
+							%span.headline.bold Follow us on Twitter
+					.col-lg-4.col-md-12.col-sm-12.col-xs-12
+						= link_to 'https://www.facebook.com/anzielhq', target: '_blank', class: 'box-link facebook' do
+							%span.light Get the latest
+							%span.headline.bold Like us on facebook
+					.col-lg-4.col-md-12.col-sm-12.col-xs-12
+						= link_to 'https://www.anziel.com/newsletter', class: 'box-link newsletter' do
+							%span.light Become inspired
+							%span.headline.bold Subscribe to our Newsletter
+		.border-top#content-footer
+			.containter
+				.row
+					.col-lg-4.col-md-4.col-sm-6
+						=link_to "Pricing", '#'
+						%br
+						=link_to "Press Package", '#'
+						%br
+						=link_to "Answer our Anonymous Survey", '#'
+						%br
+						=link_to "Terms", '#'
+					.col-lg-4.col-md-4.col-sm-6
+						=link_to "Privacy Policy", '#'
+						%br
+						=link_to "Partners & Friends", '#'
+						%br
+						=link_to "Work at Anziel", '#'
+					.col-lg-4.col-md-4.col-sm-6	
+						=link_to "Advice & Tips", '#'
+						%br
+						=link_to "Media", '#'
+						%br
+						=link_to "The Team", '#'
