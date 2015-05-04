@@ -36,6 +36,11 @@
 				%li= link_to "All Jobs", root_path
 				- Category.all.each do |category|
 					%li= link_to category.name, jobs_path(category: category.name)
+				%br
+				%br
+				/ %select.form-control
+				- Parish.all.each do |parish|
+					%li= link_to parish.name, jobs_path(parish: parish.name)
 						
 			.navbar-text.navbar-right.navbar-link= link_to "Post a Job", new_job_path
 			

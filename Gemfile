@@ -14,7 +14,8 @@ gem 'simple_form', '~> 3.1.0'
 gem 'haml', '~> 4.0.6'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'devise', '~> 3.4.1'
-
+gem 'filterrific', '~> 2.0.4'
+gem 'will_paginate', '~> 3.0.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

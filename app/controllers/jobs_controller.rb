@@ -1,12 +1,24 @@
+require 'builder'
+require 'will_paginate'
+include ActionView::Helpers::NumberHelper
+
+
 class JobsController < ApplicationController
 	before_action	:find_job, only: [:show, :edit, :update, :destroy]
 	
 	def index
-		if params[:category].blank?
+		if params[:category].blank? && params[:parish].blank?
 			@jobs = Job.all.order("created_at DESC")
-		else
+		elsif params[:category].blank? && !params[:parish].blank?
+			@parish_id = Parish.find_by(name: params[:parish]).id
+			@jobs = Job.where(parish_id: @parish_id).order("created_at DESC")
+		elsif params[:parish].blank? && !params[:category].blank?
 			@category_id = Category.find_by(name: params[:category]).id
 			@jobs = Job.where(category_id: @category_id).order("created_at DESC")
+		elsif !params[:parish].blank? && !params[:category].blank?
+			@category_id = Category.find_by(name: params[:category]).id
+			@parish_id = Parish.find_by(name: params[:parish]).id
+			@jobs = Job.find(whatever).includes(:category, :parish).order("created_at DESC")
 		end
 	end
 
