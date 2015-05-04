@@ -23,7 +23,7 @@
 				= link_to "Anziel", root_path
 			.site-links
 				%ul
-					%li= link_to "About Us", '#'
+					%li= link_to "About Us", about_path
 					%li= link_to "FAQ", '#'
 					%li= link_to "Log In", new_user_session_path
 					%li= link_to "Sign Up", new_user_registration_path
@@ -36,10 +36,7 @@
 				%li= link_to "All Jobs", root_path
 				- Category.all.each do |category|
 					%li= link_to category.name, jobs_path(category: category.name)
-				- Industry.all.each do |industry|
-					%li= link_to industry.name, jobs_path(industry: industry.name)
-				- Parish.all.each do |parish|
-					%li= link_to parish.name, jobs_path(parish: parish.name)		
+						
 			.navbar-text.navbar-right.navbar-link= link_to "Post a Job", new_job_path
 			
 	.container

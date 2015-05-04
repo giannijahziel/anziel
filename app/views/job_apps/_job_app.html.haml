@@ -1,0 +1,18 @@
+.jobapp.clearfix
+	.jobapp_cotent
+		%p.jobapp_name
+			= job_app.name
+		%p.jobapp_email
+			= job_app.email
+		%p.jobapp_resumelink
+			= job_app.resumelink
+		%p.jobapp_linkedinprofile
+			= job_app.linkedinprofile
+		%p.jobapp_twitter
+			= job_app.twitterlink
+		%p.jobapp_weblink
+			= job_app.weblink
+		%p.jobapp_message
+			= job_app.message
+
+	%p= link_to "Delete", [job_app.job, job_app], method: :delete,data: { confirm: "Are you sure?" }, class: "btn btn-small btn-default"

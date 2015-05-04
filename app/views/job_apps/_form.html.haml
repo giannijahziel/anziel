@@ -1,0 +1,10 @@
+= simple_form_for([@job, @job.job_apps.build], html: { class: 'form-horizontal'}) do |f|
+	= f.input :name, label: "Full Name", input_html: { class: "form-control" }
+	= f.input :email, label: "Your Email", input_html: { class: "form-control" }
+	= f.input :resumelink, label: "Link to Resume", input_html: { class: "form-control" }
+	= f.input :linkedinprofile, label: "Link to LinkedIn Profile", input_html: { class: "form-control" }
+	= f.input :twitterlink, label: "Link to Twitter Profile", input_html: { class: "form-control" }
+	= f.input :weblink, label: "Link to Website/Blog", input_html: { class: "form-control" }
+	= f.input :message, label: "Message", input_html: { class: "form-control" }
+	%br/
+	= f.button :submit, "Apply for this Job", input_html: { class: "form-control" }
