@@ -32,17 +32,19 @@
 	%nav.navbar.navbar-default
 		.container
 			.navbar-brand
+			.navbar-text.navbar-right.navbar-link= link_to "Post a Job", new_job_path
+			%br
 			%ul.nav.navbar-nav
-				%li= link_to "All Jobs", root_path
 				- Category.all.each do |category|
 					%li= link_to category.name, jobs_path(category: category.name)
 				%br
-				%br
+				
 				/ %select.form-control
+			%ul.nav.navbar-nav
 				- Parish.all.each do |parish|
 					%li= link_to parish.name, jobs_path(parish: parish.name)
 						
-			.navbar-text.navbar-right.navbar-link= link_to "Post a Job", new_job_path
+			
 			
 	.container
 		.row
@@ -62,7 +64,7 @@
 							%span.headline.bold Like us on facebook
 					.col-lg-4.col-md-12.col-sm-12.col-xs-12
 						= link_to 'https://www.anziel.com/newsletter', class: 'box-link newsletter' do
-							%span.light Become inspired
+							%span.light Be inspired
 							%span.headline.bold Subscribe to our Newsletter
 		.border-top#content-footer
 			.containter
