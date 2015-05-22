@@ -1,3 +1,10 @@
+	  # t.string :title
+   #    t.text :description
+   #    t.string :company
+   #    t.string :url
+   #    		 :user_id, :integer
+
+
 class Job < ActiveRecord::Base
 	has_many :job_apps, dependent: :destroy
 	
@@ -7,15 +14,15 @@ class Job < ActiveRecord::Base
 	belongs_to :user
 
 
-    #filterrific
-	filterrific(
-		default_filter_params: { sorted_by: 'created_at_asc' },
-		available_filters: [
-	    	:sorted_by,
-	    	:with_parish_id,
-	    	:with_created_at_gte
-		]
-	)
+ #    #filterrific
+	# filterrific(
+	# 	default_filter_params: { sorted_by: 'created_at_asc' },
+	# 	available_filters: [
+	#     	:sorted_by,
+	#     	:with_parish_id,
+	#     	:with_created_at_gte
+	# 	]
+	# )
 
 	scope :with_parish_id, lambda { |id|
 	  where(id: [*id])

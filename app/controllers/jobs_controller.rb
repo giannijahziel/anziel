@@ -1,5 +1,4 @@
 require 'builder'
-require 'will_paginate'
 include ActionView::Helpers::NumberHelper
 
 
