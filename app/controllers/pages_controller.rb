@@ -1,6 +1,16 @@
 class PagesController < ApplicationController
+	# layout "fullwidth", except: [:index, :faqs]
+
+
+
+	def home
+		
+	end
 
 	def about
+	 	# Render this action with specific layout
+	    # render layout: "popout"
+	    #renders with views/layouts/popout.html.erb
 	end
 
 	def faq

@@ -1,4 +1,5 @@
 class JobAppsController < ApplicationController
+	before_filter :authenticate_user!
 
 	def create
 		@job = Job.find(params[:job_id])
@@ -11,9 +12,16 @@ class JobAppsController < ApplicationController
 			:weblink,
 			:message
 			))
-
+		
 		redirect_to job_path(@job)
+		# flash.now[:notice] = "Your application was successfully sent (Y)"
 	end
+
+
+	# def new
+	# 	@jobapp = current_user.job_apps.build
+	# end
+
 
 	def destroy
 		@job = Job.find(params[:job_id])

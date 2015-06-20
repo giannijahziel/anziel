@@ -14,14 +14,15 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require ckeditor/init
+
+
 //= require_tree .
-//= require filterrific/filterrific-jquery
 
 
-$(document).ready(function() {
-    setTimeout(function() {
-        $("#notice_wrapper").fadeOut("slow", function() {
-            $(this).remove();
-        })
-    }, 4500 );
-});
+
+$(document).ready(function() { setTimeout(function() { $("#notice_wrapper").fadeOut("slow", function() { $(this).remove(); }) }, 5000 ); });
+
+
+
+

@@ -1,3 +1,5 @@
+MANDRILL_API_KEY = "QcHgJnN7tNZZhh0EiBHQnQ"
+
 ActionMailer::Base.smtp_settings = 
 {
 
@@ -5,7 +7,7 @@ ActionMailer::Base.smtp_settings =
 	port: 587,
 	enable_starttls_auto: true,
 	user_name: "planetanziel@gmail.com",
-	password: "QcHgJnN7tNZZhh0EiBHQnQ",
+	password: MANDRILL_API_KEY,
 	authentication: "login"
 
 }

@@ -1,9 +1,17 @@
-<h4><%= @JobApp.name %></h4>
+Good day <%= @jobapp.job.user.email %>.
 
-
-<h4><%= @JobApp.email %></h4>
-<h4><%= @JobApp.resumelink %></h4>
-<h4><%= @JobApp.linkedinprofile %></h4>
-<h4><%= @JobApp.twitterlink %></h4>
-<h4><%= @JobApp.weblink %></h4>
-<h4><%= @JobApp.message %></h4>
+<p>
+	Here is my cover letter for this career opportunity.
+	<br />
+	<%= @jobapp.message %>
+</p>
+<p>
+	My name is <strong><%= @jobapp.name %></strong>. You may contact me via email at <strong><%= @jobapp.email %></strong>.
+	<br />
+	Please review my resumé via this link: <strong><%= @jobapp.resumelink %></strong>.
+	<br />
+	I also have a LinkedIn profile which you may view here: <strong><%= @jobapp.linkedinprofile %></strong>
+	as well as a space on the internet at this address: <strong><%= @jobapp.weblink %></strong>.
+	<br />
+	For a bit of my personality you may view my twitter profile here: <strong><%= @jobapp.twitterlink %></strong>.
+</p>

@@ -3,6 +3,7 @@ include ActionView::Helpers::NumberHelper
 
 
 class JobsController < ApplicationController
+	before_filter :authenticate_user!, except: [ :index, :show ]
 	before_action	:find_job, only: [:show, :edit, :update, :destroy]
 	
 	def index
@@ -32,7 +33,7 @@ class JobsController < ApplicationController
 		@job = current_user.jobs.build(jobs_params)
 
 		if @job.save
-			redirect_to @job
+			redirect_to @job, notice: "Vacancy has been successfully created."
 		else
 			render "New"
 		end	
@@ -43,7 +44,7 @@ class JobsController < ApplicationController
 
 	def update
 		if @job.update(jobs_params)
-			redirect_to @job
+			redirect_to @job, notice: "Vacancy has been successfully upated."
 		else
 			render	"Edit"
 		end

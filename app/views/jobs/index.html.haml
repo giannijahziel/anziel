@@ -1,9 +1,24 @@
 = provide(:title, "Anziel")
-#jobs
-	- @jobs.in_groups_of(1, false) do |jobgroup|
-		.jobgroup.col-lg-3.col-md-3.col-sm-6.col-xs-12
-			- jobgroup.each do |job|
-				.job
-					%h4= link_to job.title, job
-					%p= job.parish.name
-					%p= job.company
+/ #jobs
+/ 	- @jobs.in_groups_of(1, false) do |jobgroup|
+/ 		.jobgroup.col-lg-3.col-md-3.col-sm-6.col-xs-12
+/ 			- jobgroup.each do |job|
+/ 				.job
+/ 					%h4= link_to job.title, job
+/ 					%p= job.parish.name
+/ 					%p= job.company
+
+
+%nav.navbar.navbar-default
+	.container
+		%ul.nav.navbar-nav
+			- Category.all.each do |category|
+				%li= link_to category.name, jobs_path(category: category.name)
+			.navbar-text.navbar-right.navbar-link.rgt= link_to "Post a Job", new_job_path
+			
+			/ %select.form-control
+		%ul.nav.navbar-nav
+			- Parish.all.each do |parish|
+				%li= link_to parish.name, jobs_path(parish: parish.name)
+
+= render 'list'

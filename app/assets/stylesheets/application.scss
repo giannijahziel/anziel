@@ -124,9 +124,12 @@ body
 {
     position: absolute;
     top: 0;
-    width: 100%;
+    margin-left: 33.33%;
+    width: 33.33%;
     z-index: 999;
-    background: rgba(135, 216, 211, 0.85);
+    background: rgba(135, 216, 211, 0.55);
+    border-radius: 0 0 7px 7px;
+    box-shadow: 0px 20px 31px -4px rgba(0, 0, 0, 0.29);
     
     .alert, .notice
     {
@@ -196,4 +199,8 @@ body
 	background-size: 40px 40px;
 }
 
+.rgt 
+{
+	float: right;
+}
 

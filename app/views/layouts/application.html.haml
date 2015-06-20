@@ -3,49 +3,46 @@
 %head
 	%title= yield (:title)
 	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-	/ = javascript_include_tag 'application', 'data-turbolinks-track' => true
+	= javascript_include_tag 'application', 'data-turbolinks-track' => true
 	= csrf_meta_tags
 
 %body
-	
+		
 	- if notice
 		#notice_wrapper
 			%p.notice
 				= notice
-	- elsif
+	- elsif alert
 		#notice_wrapper
 			%p.alert
 				= alert
 
 	%header
 		#header
-			.logo
-				= link_to "Anziel", root_path
 			.site-links
-				%ul
-					%li= link_to "About Us", about_path
-					%li= link_to "FAQ", '#'
-					%li= link_to "Log In", new_user_session_path
-					%li= link_to "Sign Up", new_user_registration_path
-					%li= link_to "Log Out", destroy_user_session_path, :method => :delete
+				%nav.navbar.navbar-default
+					.navbar-header
 
-	%nav.navbar.navbar-default
-		.container
-			.navbar-brand
-			.navbar-text.navbar-right.navbar-link= link_to "Post a Job", new_job_path
-			%br
-			%ul.nav.navbar-nav
-				- Category.all.each do |category|
-					%li= link_to category.name, jobs_path(category: category.name)
-				%br
-				
-				/ %select.form-control
-			%ul.nav.navbar-nav
-				- Parish.all.each do |parish|
-					%li= link_to parish.name, jobs_path(parish: parish.name)
+						- if user_signed_in?
+							%btn.navbar-toggle.collapsed{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}= link_to "Log Out", destroy_user_session_path, :method => :delete
+						- else
+							%btn.navbar-toggle.collapsed{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}= link_to "Sign In", new_user_session_path
+						.logo.navbar-brand
+							= link_to "Anziel", authenticated_root_path
+					.navbar-collapse.collapse
+						%ul.nav.navbar-nav.navbar-right
+							%li= link_to "About Us", pages_about_path
+							%li= link_to "FAQ", '#'
+
+							- if user_signed_in?
+								%li
+									%a= current_user.email
+								%li= link_to "Edit Profile", edit_user_registration_path
+								%li= link_to "Log Out", destroy_user_session_path, :method => :delete
+							- else
+								%li= link_to "Sign Up", new_user_registration_path
+								%li= link_to "Log In", new_user_session_path
 						
-			
-			
 	.container
 		.row
 			= yield
@@ -66,26 +63,30 @@
 						= link_to 'https://www.anziel.com/newsletter', class: 'box-link newsletter' do
 							%span.light Be inspired
 							%span.headline.bold Subscribe to our Newsletter
-		.border-top#content-footer
+		.border-top#-footer
 			.containter
 				.row
-					.col-lg-4.col-md-4.col-sm-6
+					.col-lg-4.col-md-12.col-sm-12.col-xs-12
 						=link_to "Pricing", '#'
+						%br
+						=link_to "Brand", '#'
 						%br
 						=link_to "Press Package", '#'
 						%br
 						=link_to "Answer our Anonymous Survey", '#'
-						%br
-						=link_to "Terms", '#'
-					.col-lg-4.col-md-4.col-sm-6
-						=link_to "Privacy Policy", '#'
-						%br
-						=link_to "Partners & Friends", '#'
-						%br
-						=link_to "Work at Anziel", '#'
-					.col-lg-4.col-md-4.col-sm-6	
-						=link_to "Advice & Tips", '#'
+					.col-lg-4.col-md-12.col-sm-12.col-xs-12
+						=link_to "Blog", '#'
 						%br
 						=link_to "Media", '#'
 						%br
-						=link_to "The Team", '#'
+						=link_to "Advice & Tips", '#'
+					.col-lg-4.col-md-12.col-sm-12.col-xs-12
+						=link_to "Terms", '#'
+						%br
+						=link_to "Privacy Policy", '#'
+						%br
+						=link_to "Partners & Friends", '#'
+					
+
+
+
